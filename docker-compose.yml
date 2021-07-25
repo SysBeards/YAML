@@ -2,16 +2,17 @@
 version: "2.1"
 services:
   webtop:
-    image: ghcr.io/linuxserver/webtop:
+    image: ghcr.io/linuxserver/webtop: #añadir la TAG del SO que se quiere instalar
     container_name: webtop
-    privileged: true #optional
+    privileged: true #opcional
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
+      - PASSWORD= password #Modifica esta línea si quieres poner password al acceder a la sesión, si no, borralá
     volumes:
       - /path/to/data:/config
     ports:
       - 3000:3000
-    shm_size: "1gb"
+    shm_size: "1gb" #Modifica este valor para que los navegadores no crasheen
     restart: unless-stopped
