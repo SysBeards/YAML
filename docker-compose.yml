@@ -4,7 +4,7 @@ services:
   webtop:
     image: ghcr.io/linuxserver/webtop: #añadir la TAG del SO que se quiere instalar
     container_name: webtop
-    privileged: true #opcional
+    privileged: true #opcional pero necesario para que funcionen algunos programas como visual studio
     environment:
       - PUID=1000
       - PGID=1000
