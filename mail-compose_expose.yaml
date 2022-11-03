@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  mailserver:
+    image: analogic/poste.io
+    container_name: mailserver-sysbeards
+    restart: always
+    network_mode: "host"
+    expose:
+      - "25"
+      - "8080"
+      - "4443"
+      - "110"
+      - "143"
+      - "465"
+      - "587"
+      - "993"
+      - "995"
+    environment:
+      - TZ=Europe/Madrid
+      - h=mail.sysbeards-academy.com # Direccion del servidor de mail hosting
+      - HTTP_PORT=8080
+      - HTTPS_PORT=4443
+      - DISABLE_CLAMAV=TRUE
+    volumes:
+      - /mnt/mail:/data
